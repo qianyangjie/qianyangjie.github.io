@@ -1,116 +1,177 @@
 
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-  <title>Qian Yangjie | Personal Homepage</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, "Microsoft YaHei", sans-serif;
-      background: #f7f9fc;
-      color: #283747;
-      line-height: 1.8;
-    }
-    header {
-      background: #17365d;
-      color: white;
-      text-align: center;
-      padding: 65px 20px;
-    }
-    header h1 { margin: 0; font-size: 36px; }
-    header p { color: #d8e6f5; }
-    nav {
-      background: white;
-      text-align: center;
-      padding: 15px;
-    }
-    nav a {
-      color: #17365d;
-      margin: 0 12px;
-      text-decoration: none;
-    }
-    main {
-      max-width: 850px;
-      margin: 35px auto;
-      padding: 0 20px;
-    }
-    section {
-      background: white;
-      margin-bottom: 22px;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 2px 12px #00000009;
-    }
-    h2 { color: #17365d; }
-    footer {
-      text-align: center;
-      color: #777;
-      padding: 25px;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#05070b" />
+  <title>Simon · Qian Yangjie | Radar Signal Processing</title>
+  <meta name="description" content="Qian Yangjie (Simon) — exploring radar signal processing, weak target detection, and clutter suppression." />
+  <link rel="canonical" href="https://qianyangjie.github.io/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Simon · Qian Yangjie | Radar Signal Processing" />
+  <meta property="og:description" content="Beyond the Noise. Discover the Signal." />
+  <meta property="og:url" content="https://qianyangjie.github.io/" />
+  <meta property="og:locale" content="en_US" />
+  <link rel="stylesheet" href="/src/styles/global.css" />
 </head>
 <body>
-
-<header>
-  <h1>Qian Yangjie</h1>
-  <p>Graduate Student | Radar Signal Processing</p>
-  <p>Welcome to my personal website!</p>
-</header>
-
-<nav>
-  <a href="#about">About</a>
-  <a href="#research">Research</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<main>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      你好！欢迎来到我的个人主页。
-      我主要关注雷达信号处理、弱目标检测、
-      杂波抑制以及人工智能算法。
-    </p>
-  </section>
-
-  <section id="research">
-    <h2>Research Interests</h2>
-    <ul>
-      <li>Radar Signal Processing</li>
-      <li>Weak Target Detection</li>
-      <li>Clutter Suppression</li>
-      <li>Artificial Intelligence</li>
-    </ul>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <p>
-      Research projects and algorithm implementations
-      will be updated here.
-    </p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>
-      GitHub:
-      <a href="https://github.com/Simon-charming">
-        Simon-charming
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+  <!-- HTML 定义页面结构，导航 href 对应各 section 的 id。 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#home" aria-label="Simon · Qian Yangjie">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13"/><circle cx="16" cy="16" r="7"/><path d="M16 16 25 7"/><circle class="mark-dot" cx="22" cy="10" r="2"/></svg>
+        <span>SIMON<span class="brand-divider"> / </span><span class="brand-name" data-i18n="hero.name">Qian Yangjie</span></span>
       </a>
-    </p>
-  </section>
+      <nav id="main-nav" class="main-nav" aria-label="Main navigation" data-i18n-aria="nav.label">
+        <a href="#home" class="is-active" aria-current="location" data-i18n="nav.home">Home</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#research" data-i18n="nav.research">Research</a>
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#publications" data-i18n="nav.publications">Publications</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <div class="language-switch" role="group" aria-label="Choose language" data-i18n-aria="nav.language">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button><span aria-hidden="true">/</span><button type="button" data-lang="zh" aria-pressed="false" lang="zh-CN">中文</button>
+        </div>
+        <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation" data-i18n-aria="nav.menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <section id="home" class="hero" aria-labelledby="hero-heading">
+      <div class="hero-stage">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="radar-wrap">
+          <!-- Canvas 初始化前仍显示静态 SVG；不依赖任何外部图片。 -->
+          <svg class="radar-fallback" viewBox="0 0 800 800" aria-hidden="true"><defs><radialGradient id="radar-fill"><stop stop-color="#1c4f76" stop-opacity=".16"/><stop offset="1" stop-color="#05070b" stop-opacity="0"/></radialGradient></defs><circle cx="400" cy="400" r="350" fill="url(#radar-fill)"/><g fill="none" stroke="#326180" stroke-width=".7"><circle cx="400" cy="400" r="330"/><circle cx="400" cy="400" r="264"/><circle cx="400" cy="400" r="198"/><circle cx="400" cy="400" r="132"/><circle cx="400" cy="400" r="66"/><path d="M70 400h660M400 70v660M166 166l468 468M166 634l468-468"/></g><path d="M400 400 633 167" stroke="#48d9ff" opacity=".6"/><circle cx="492" cy="316" r="4" fill="#48d9ff"/></svg>
+          <canvas id="hero-canvas" role="img" aria-label="Abstract radar with concentric rings, a scanning beam, and an emerging target." data-i18n-aria="hero.visual"></canvas>
+          <span class="radar-coordinate coordinate-top" aria-hidden="true">N</span><span class="radar-coordinate coordinate-right" aria-hidden="true">E</span>
+          <div class="radar-caption"><span class="small-dot"></span><span data-i18n="concept">Conceptual visualization</span></div>
+        </div>
+        <div class="hero-copy container">
+          <p class="eyebrow hero-eyebrow"><span class="small-dot"></span><span data-i18n="hero.eyebrow">RESEARCH & ENGINEERING</span></p>
+          <h1 id="hero-heading">SIMON<span class="name-line" data-i18n="hero.name">Qian Yangjie</span></h1>
+          <div class="hero-statement">
+            <h2><span data-i18n="hero.title1">Beyond the Noise.</span><span class="accent-text" data-i18n="hero.title2">Discover the Signal.</span></h2>
+            <p data-i18n="hero.discipline">Radar Signal Processing · Research & Engineering</p>
+          </div>
+        </div>
+        <div class="hero-signal-copy"><p data-i18n="hero.signal">A signal worth finding.</p><span data-i18n="hero.signalSub">A quieter background. A clearer perspective.</span></div>
+        <div class="hero-bottom container">
+          <a class="scroll-cue" href="#about"><span class="scroll-line" aria-hidden="true"></span><span data-i18n="hero.scroll">Scroll to Explore</span><span aria-hidden="true">↓</span></a>
+          <span class="hero-index" aria-hidden="true">01 <span>/ 06</span></span>
+        </div>
+      </div>
+    </section>
 
-</main>
+    <section id="about" class="about section-pad" aria-labelledby="about-heading">
+      <div class="container">
+        <p class="section-kicker reveal"><span>02</span><span data-i18n="about.label">THE PERSON BEHIND THE SIGNAL</span></p>
+        <h2 id="about-heading" class="section-heading"><span class="reveal" data-i18n="about.title1">Driven by Curiosity.</span><span class="muted reveal" data-i18n="about.title2">Grounded in Engineering.</span></h2>
+        <div class="about-grid">
+          <div class="monogram reveal" role="img" aria-label="S · An abstract monogram for Simon" data-i18n-aria="about.monogram"><span aria-hidden="true">S</span><svg viewBox="0 0 400 400" aria-hidden="true"><ellipse cx="200" cy="200" rx="180" ry="68" transform="rotate(-35 200 200)"/><ellipse cx="200" cy="200" rx="180" ry="68" transform="rotate(35 200 200)"/><circle cx="334" cy="113" r="3"/></svg></div>
+          <div class="about-copy">
+            <h3 class="reveal" data-i18n="about.hello">Hello, I’m Simon.</h3>
+            <p class="reading-line" data-i18n="about.p1">My academic background spans Automation and Information and Communication Engineering.</p>
+            <p class="reading-line" data-i18n="about.p2">My interests lie in radar signal processing, weak target detection, clutter suppression, and the connection between mathematical methods and practical implementation.</p>
+            <p class="reading-line" data-i18n="about.p3">I enjoy exploring how complex signals can be transformed into meaningful insights.</p>
+          </div>
+        </div>
+        <div class="education">
+          <p class="eyebrow reveal" data-i18n="about.education">ACADEMIC BACKGROUND</p>
+          <article class="education-row reveal"><span class="row-number">01</span><h3 data-i18n="education.1.school">Northwestern Polytechnical University</h3><p data-i18n="education.1.major">Automation</p><span class="education-arrow" aria-hidden="true">↗</span></article>
+          <article class="education-row reveal"><span class="row-number">02</span><h3 data-i18n="education.2.school">China Academy of Space Technology</h3><p data-i18n="education.2.major">Information and Communication Engineering</p><span class="education-arrow" aria-hidden="true">↗</span></article>
+        </div>
+      </div>
+    </section>
 
-<footer>
-  © 2026 Qian Yangjie
-</footer>
+    <section id="research" class="research section-pad" aria-labelledby="research-heading">
+      <div class="container">
+        <p class="section-kicker reveal"><span>03</span><span data-i18n="research.label">FROM CLUTTER TO CLARITY</span></p>
+        <h2 id="research-heading" class="section-heading"><span class="reveal" data-i18n="research.title1">Finding What Others</span><span class="accent-text reveal" data-i18n="research.title2">Cannot See.</span></h2>
+        <p class="section-intro reveal" data-i18n="research.subtitle">Understanding signals. Exploring detection. Advancing algorithms.</p>
+      </div>
+      <div class="research-scene container">
+        <div class="research-stage-nav" role="group" aria-label="Explore the signal processing stages" data-i18n-aria="research.stages">
+          <button type="button" data-stage="0" aria-pressed="true"><span>01</span><span data-i18n="research.stage1">Raw Signal</span></button>
+          <button type="button" data-stage="1" aria-pressed="false"><span>02</span><span data-i18n="research.stage2">Signal Processing</span></button>
+          <button type="button" data-stage="2" aria-pressed="false"><span>03</span><span data-i18n="research.stage3">Target Emergence</span></button>
+          <button type="button" data-stage="3" aria-pressed="false"><span>04</span><span data-i18n="research.stage4">Research Areas</span></button>
+        </div>
+        <div class="research-layout">
+          <div class="signal-panel">
+            <div class="plot-topline"><span><span class="small-dot"></span><span data-i18n="concept">Conceptual visualization</span></span><span class="plot-code" aria-hidden="true">ECHO / SIGNAL</span></div>
+            <div class="signal-plot">
+              <svg class="signal-fallback" viewBox="0 0 800 320" preserveAspectRatio="none" aria-hidden="true"><g stroke="#24303d" stroke-width="1"><path d="M0 80h800M0 160h800M0 240h800M160 0v320M320 0v320M480 0v320M640 0v320"/></g><path d="M0 230 25 224 50 236 75 226 100 230 125 216 150 230 175 228 200 237 225 222 250 230 275 223 300 238 325 230 350 225 375 231 400 220 425 230 450 225 475 219 500 186 520 110 540 67 560 144 580 209 600 229 625 224 650 235 675 226 700 233 725 224 750 230 800 228" fill="none" stroke="#48d9ff" stroke-width="2"/></svg>
+              <canvas id="signal-canvas" role="img" aria-label="Conceptual radar signal: clutter is suppressed and a weak target becomes visible as you scroll or select a stage." data-i18n-aria="research.plot"></canvas>
+              <span class="axis-y" data-i18n="research.axisY">Amplitude</span><span class="axis-x" data-i18n="research.axisX">Relative range</span>
+              <div class="target-label"><span class="small-dot"></span><span data-i18n="research.target">Target of interest</span></div>
+            </div>
+            <div class="processing-flow"><span data-i18n="research.raw">Raw Echo</span><span aria-hidden="true">→</span><span class="processing-node" data-i18n="research.processing">Processing</span><span aria-hidden="true">→</span><span data-i18n="research.enhanced">Target Enhancement</span></div>
+            <div class="plot-note" data-i18n="concept.note">Illustrative signals · No measured data</div>
+          </div>
+          <div class="research-areas">
+            <p class="eyebrow" data-i18n="research.interests">RESEARCH INTERESTS</p>
+            <article><span>01</span><div><h3 data-i18n="area.1.title">Radar Signal Processing</h3><p data-i18n="area.1.desc">Understanding echoes through mathematical models and signal analysis.</p></div></article>
+            <article><span>02</span><div><h3 data-i18n="area.2.title">Weak Target Detection</h3><p data-i18n="area.2.desc">Exploring how faint returns can be distinguished from complex backgrounds.</p></div></article>
+            <article><span>03</span><div><h3 data-i18n="area.3.title">Clutter Suppression</h3><p data-i18n="area.3.desc">Investigating adaptive methods to reduce unwanted interference.</p></div></article>
+            <article><span>04</span><div><h3 data-i18n="area.4.title">Coherent Integration</h3><p data-i18n="area.4.desc">Aligning signal phase to explore information across multiple observations.</p></div></article>
+          </div>
+        </div>
+        <div class="stage-caption"><span class="stage-number" aria-hidden="true">01 — 04</span><p data-i18n="research.desc1" id="stage-description">A faint return, hidden in a complex background. The search begins in the noise.</p></div>
+        <p class="research-hint" data-i18n="research.hint">Scroll to reveal the signal, or select a stage.</p>
+      </div>
+    </section>
 
+    <section id="projects" class="projects section-pad" aria-labelledby="projects-heading">
+      <div class="container">
+        <p class="section-kicker reveal"><span>04</span><span data-i18n="projects.label">EXPLORATIONS IN PRACTICE</span></p>
+        <h2 id="projects-heading" class="section-heading"><span class="reveal" data-i18n="projects.title1">From Theory</span><span class="muted reveal" data-i18n="projects.title2">to Implementation.</span></h2>
+        <p class="section-intro project-disclaimer reveal" data-i18n="projects.note">Illustrative project concepts. These examples do not represent completed or published work.</p>
+        <div class="project-grid">
+          <article class="project-card reveal" data-project="keystone">
+            <div class="project-art art-keystone" aria-hidden="true"><svg viewBox="0 0 360 230"><defs><linearGradient id="keystone-line" x2="1" y2="1"><stop stop-color="#2997ff" stop-opacity=".2"/><stop offset="1" stop-color="#48d9ff"/></linearGradient></defs><g fill="none" stroke="url(#keystone-line)" stroke-width="1.4"><path d="M35 188 168 42M66 188 180 42M97 188 192 42M128 188 204 42M159 188 216 42M190 188 228 42M221 188 240 42M252 188 252 42M283 188 264 42M314 188 276 42"/></g><path d="M25 189h305" stroke="#364554"/><circle cx="205" cy="118" r="4" fill="#48d9ff"/></svg><span>01 / KEYSTONE</span></div>
+            <div class="project-body"><p class="project-status" data-i18n="projects.example">EXAMPLE · PLACEHOLDER</p><h3 data-i18n="project.keystone.title">Keystone Transform</h3><p class="project-subtitle" data-i18n="project.keystone.subtitle">Range Migration Compensation</p><p class="project-description" data-i18n="project.keystone.desc">An example space for exploring the correction of range migration in radar echoes.</p><div class="project-tags"><span>Keystone Transform</span><span>FFT</span></div><div class="repository-slot"><span data-i18n="projects.repository">Repository not yet provided</span></div></div>
+          </article>
+          <article class="project-card reveal" data-project="clutter">
+            <div class="project-art art-clutter" aria-hidden="true"><svg viewBox="0 0 360 230"><g stroke="#274158" fill="none" opacity=".8"><path d="M20 123 35 102 50 151 65 82 80 138 95 111 110 152 125 84 140 119 155 89 170 140 185 109 200 152 215 98 230 128 245 82 260 133 275 103 290 148 305 90 320 131 340 110"/><path d="M20 153 35 122 50 141 65 112 80 159 95 131 110 143 125 109 140 150 155 129 170 154 185 128 200 165 215 138 230 157 245 114 260 166 275 139 290 163 305 119 320 149 340 130"/></g><path d="M20 164Q60 158 100 164T180 164Q210 165 222 126Q236 60 249 126Q260 163 280 164T340 164" fill="none" stroke="#48d9ff" stroke-width="2"/><circle cx="236" cy="97" r="4" fill="#48d9ff"/></svg><span>02 / CLUTTER</span></div>
+            <div class="project-body"><p class="project-status" data-i18n="projects.example">EXAMPLE · PLACEHOLDER</p><h3 data-i18n="project.clutter.title">Clutter Suppression</h3><p class="project-subtitle" data-i18n="project.clutter.subtitle">Adaptive Signal Processing</p><p class="project-description" data-i18n="project.clutter.desc">An example space for exploring adaptive approaches to separating targets from clutter.</p><div class="project-tags"><span>STAP</span><span data-i18n="project.tag.adaptive">Adaptive Processing</span></div><div class="repository-slot"><span data-i18n="projects.repository">Repository not yet provided</span></div></div>
+          </article>
+          <article class="project-card reveal" data-project="lab">
+            <div class="project-art art-lab" aria-hidden="true"><svg viewBox="0 0 360 230"><g fill="none" stroke="#345572"><circle cx="180" cy="112" r="66"/><circle cx="180" cy="112" r="42"/><path d="M75 112h210M180 25v175"/></g><path d="M38 112Q58 58 78 112T118 112T158 112T198 112T238 112T278 112T318 112" fill="none" stroke="#48d9ff" stroke-width="1.8"/><circle cx="180" cy="112" r="5" fill="#48d9ff"/></svg><span>03 / SIGNAL LAB</span></div>
+            <div class="project-body"><p class="project-status" data-i18n="projects.example">EXAMPLE · PLACEHOLDER</p><h3 data-i18n="project.lab.title">Signal Processing Lab</h3><p class="project-subtitle" data-i18n="project.lab.subtitle">Interactive Algorithm Visualizations</p><p class="project-description" data-i18n="project.lab.desc">An example space for turning signal processing ideas into interactive visual explanations.</p><div class="project-tags"><span>JavaScript</span><span>Canvas</span></div><div class="repository-slot"><span data-i18n="projects.repository">Repository not yet provided</span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="publications section-pad" aria-labelledby="publications-heading">
+      <div class="container">
+        <p class="section-kicker reveal"><span>05</span><span data-i18n="publications.label">NOTES & RESEARCH OUTPUTS</span></p>
+        <div class="publications-layout"><h2 id="publications-heading" class="section-heading"><span class="reveal" data-i18n="publications.title1">Ideas Worth</span><span class="muted reveal" data-i18n="publications.title2">Sharing.</span></h2><div class="publications-empty reveal"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 6h17l8 8v28H12zM29 6v9h8M19 23h11M19 29h11M19 35h7"/></svg><p data-i18n="publications.empty">Publications and research outputs will be updated here.</p><span data-i18n="publications.status">A space for what comes next.</span></div></div>
+        <div id="publication-list"></div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact section-pad" aria-labelledby="contact-heading">
+      <div class="contact-glow" aria-hidden="true"></div>
+      <div class="container contact-inner">
+        <p class="section-kicker reveal"><span>06</span><span data-i18n="contact.label">KEEP THE CONVERSATION GOING</span></p>
+        <h2 id="contact-heading" class="reveal" data-i18n="contact.title">Let’s Connect.</h2>
+        <p class="contact-intro reveal" data-i18n="contact.subtitle">Open to meaningful conversations about research, engineering, and technology.</p>
+        <div class="contact-links reveal">
+          <a class="button button-primary" href="https://github.com/Simon-charming" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1-4-2-6-2m12 5v-4a3.5 3.5 0 0 0-1-2.7c3.3-.4 6.8-1.6 6.8-7.3A5.7 5.7 0 0 0 19.2 4c.1-1-.1-2-.4-3 0 0-1.3-.4-4.3 1.6a15 15 0 0 0-8 0C3.5.6 2.2 1 2.2 1c-.3 1-.5 2-.4 3A5.7 5.7 0 0 0 .2 8c0 5.7 3.5 6.9 6.8 7.3A3.5 3.5 0 0 0 6 18v4" transform="translate(1 0) scale(.95)"/></svg><span data-i18n="contact.github">View GitHub</span><span aria-hidden="true">↗</span></a>
+          <a class="button button-secondary" href="mailto:2428286976@qq.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg><span data-i18n="contact.email">Send Email</span><span aria-hidden="true">↗</span></a>
+        </div>
+        <a class="email-address reveal" href="mailto:2428286976@qq.com">2428286976@qq.com</a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer container"><p>© <span id="year">2026</span> <span data-i18n="footer.rights">Qian Yangjie. All rights reserved.</span></p><a href="#home"><span data-i18n="footer.top">Back to top</span><span aria-hidden="true">↑</span></a></footer>
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>
